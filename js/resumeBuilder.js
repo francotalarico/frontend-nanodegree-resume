@@ -7,6 +7,8 @@ var formattedRole = HTMLheaderRole.replace("%data%", role);
 $("#header").prepend(formattedRole).prepend(formattedName);
 
 var skills = ['UX Designer', 'GIT', 'Python', 'JS', 'AngularJS'];
+$("#header").append(HTMLskillsStart);
+var formattedSkills = HTMLskills.replace("%data%", skills);
 
 var bio = {
     'name': 'Franco Talarico',
@@ -21,4 +23,22 @@ var bio = {
     'skills': skills
 };
 
-$("#main").append(bio.name);
+//$("#main").append(bio.name);
+
+var work = {
+    'position': 'Web developer',
+    'city': 'Rosario',
+    'years_worked': 3
+};
+
+var education = {};
+
+education["last_school"] = "Los Angeles";
+education["last_year"] = "2011";
+education["city"] = "Rosario";
+
+//$("#main").append(work["position"], education.last_school);
+
+if(bio.skills.length != 0){
+    $("#skills").append(formattedSkills);
+}
