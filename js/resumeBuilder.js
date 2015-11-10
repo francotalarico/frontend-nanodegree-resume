@@ -46,16 +46,26 @@ var work = {
     ]
 };
 
-for(job in work.jobs){
-    $("#workExperience").append(HTMLworkStart);
+function displayWork(){
+    for(job in work.jobs){
+        $("#workExperience").append(HTMLworkStart);
 
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
-    $(".work-entry:last")
-        .append(formattedEmployerTitle);
+        var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+
+        $(".work-entry:last")
+            .append(formattedEmployerTitle)
+            .append(formattedWorkDates)
+            .append(formattedWorkDescription);
+    }
 }
+
+displayWork();
 
 var projects = {
     'projects': [
