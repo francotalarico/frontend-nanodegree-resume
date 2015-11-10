@@ -32,14 +32,14 @@ var work = {
         {
             'employer': 'Aenima',
             'title': 'Software developer',
-            'location': 'Argentina, Santa Fe, Rosario',
+            'location': 'Santa Fe, Rosario',
             'dates': '2014 - 2015',
             'description': 'The digital world changed our lives, how we relate to each other, how we communicate and express ourselves.'
         },
         {
             'employer': 'Sotrick',
             'title': 'Digital planner',
-            'location': 'Argentina, Santa Fe, Rosario',
+            'location': 'San Nicolás',
             'dates': '2013 - 2014',
             'description': 'My own bussiness.'
         }
@@ -66,6 +66,16 @@ function displayWork(){
 }
 
 displayWork();
+
+function locationizer(work_obj){
+    var locations = [];
+
+    for(var job in work_obj.jobs){
+        locations.push(work_obj.jobs[job].location);
+    }
+
+    return locations;
+}
 
 var projects = {
     'projects': [
@@ -142,4 +152,17 @@ var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
 
 if(bio.skills.length != 0){
     $("#skills").append(formattedSkills);
+}
+
+$("#main").append(internationalizeButton);
+
+
+// Internationalized Name
+function inName(name){
+    var internationalizedName = name.split(" ");
+    internationalizedName[1] = internationalizedName[1].toUpperCase();
+    internationalizedName = internationalizedName.join(" ");
+
+    internationalizedName = internationalizedName.charAt(0).toUpperCase() + internationalizedName.slice(1);
+    return internationalizedName;
 }
