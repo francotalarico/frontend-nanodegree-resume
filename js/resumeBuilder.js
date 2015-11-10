@@ -154,11 +154,12 @@ if(bio.skills.length != 0){
     $("#skills").append(formattedSkills);
 }
 
-$("#main").append(internationalizeButton);
+//$("#main").append(internationalizeButton);
 
 
 // Internationalized Name
 function inName(name){
+    name = "franco talarico";
     var internationalizedName = name.split(" ");
     internationalizedName[1] = internationalizedName[1].toUpperCase();
     internationalizedName = internationalizedName.join(" ");
