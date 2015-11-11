@@ -85,20 +85,20 @@ var projects = {
             'title': 'Historia viva',
             'dates': 'Agosto de 2015',
             'description': 'Sitio web realizado con HTML5, CSS3 y el framework AngularJS para darle dinamismo.',
-            'images': {
-                    'first': 'images/historia-viva/1.png',
-                    'second': 'images/historia-viva/2.png'
-                }
+            'images': [
+                'images/historia-viva/1.png',
+                'images/historia-viva/2.png'
+            ]
 
         },
         {
             'title': 'MBAAG',
             'dates': 'Noviembre de 2015',
             'description': 'Sitio web realizado con HTML5, CSS3 y jQuery.',
-            'images': {
-                    'first': 'images/mbaag/1.png',
-                    'second': 'images/mbaag/2.png'
-                }
+            'images': [
+                'images/mbaag/1.png',
+                'images/mbaag/2.png'
+            ]
 
         }
     ],
@@ -115,7 +115,7 @@ var projects = {
                 .append(formattedProjDescription);
 
             if(projects_obj.projects[project].images.length > 0){
-                for(var image in projects_obj.projects[project].images){
+                for(image in projects_obj.projects[project].images){
                     $(".project-entry:last")
                         .append(HTMLprojectImage.replace("%data%", projects_obj.projects[project].images[image]));
                 }
@@ -162,7 +162,6 @@ $("#topContacts")
 $("#header").append(HTMLbioPic.replace("%data%", bio.picture));
 
 $("#header").append(HTMLskillsStart);
-var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
 
 //$("#main").append(bio.name);
 
@@ -171,7 +170,9 @@ var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
 //$("#main").append(work["position"], education.last_school);
 
 if(bio.skills.length != 0){
-    $("#skills").append(formattedSkills);
+    for(skill in bio.skills){
+        $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));
+    }
 }
 
 //$("#main").append(internationalizeButton);
